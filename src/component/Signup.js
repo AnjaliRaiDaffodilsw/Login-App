@@ -27,7 +27,8 @@ class Signup extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     try {
-      const token = await axios.post("https://reqres.in/api/register", { email, password });
+      const token = await axios.post("https://reqres.in/api/register",
+        { email, password });
       localStorage.setItem("token", JSON.stringify(token));
       this.setState({
         isLoggedIn: true

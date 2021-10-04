@@ -37,3 +37,8 @@ a:-webkit-any-link {
 .heading-text {
   text-align: center;
 }
+
+input {
+  margin-bottom: 20px;
+  padding: 8px;
+}

@@ -9,6 +9,8 @@ import './assets/styles/FormInput.css';
 
 class App extends Component {
   render() {
+    const compNames = [Login, Profile, Logout, Signup];
+    const pathNames = ["/login", "/profile", "/logout", "/signup"];
     return (
       <>
         <div className="link-container">
@@ -22,18 +24,17 @@ class App extends Component {
           </ul>
         </div>
         <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route path="/profile" >
-            <Profile />
-          </Route>
-          <Route path="/logout" >
-            <Logout />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
+          {
+            compNames.map((value, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={pathNames[index]}
+                  component={value}
+                />
+              )
+            })
+          }
         </Switch>
       </>
     )
