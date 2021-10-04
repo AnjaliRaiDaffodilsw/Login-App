@@ -14,17 +14,15 @@ class Login extends Component {
     if (token) isLoggedIn = true;
 
     this.state = {
-      email: "",
-      password: "",
       isLoggedIn,
       error: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSubmit(event) {
+  async handleSubmit(event,inputState) {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { email, password } = inputState;
     try {
       const response = await LoginAPI(email, password);
       const Token = response.data.token;
@@ -40,12 +38,6 @@ class Login extends Component {
 
   }
 
-  onChangeHandler = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
-
   render() {
     if (this.state.isLoggedIn === true) return <Redirect to="/profile" />
     if (this.state.error) return (
@@ -57,8 +49,6 @@ class Login extends Component {
       <>
         <Form
           key={Math.random()}
-          changeHandler={this.onChangeHandler}
-          userState={this.state}
           submitHandler={this.handleSubmit}
         />
       </>

@@ -1,22 +1,38 @@
 import React, { Component } from 'react'
 
 class Form extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      email: "",
+      password: "",
+      username: ""
+    }
+  }
+
+  onChangeHandler = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
+
   render() {
     const {
-      changeHandler,
       isUserName,
-      userState,
       submitHandler
     } = this.props;
+    const { username, password, email } = this.state;
+
     return (
       <div>
-        <form onSubmit={(e) => submitHandler(e)} className="form-area">
+        <form onSubmit={(e) => submitHandler(e, this.state)} className="form-area">
           {
             isUserName && <input
               type="text"
               placeholder="Enter your username"
-              value={userState.username}
-              onChange={(e) => changeHandler(e)}
+              value={username}
+              onChange={this.onChangeHandler}
               name="username"
               autoComplete="off"
               autoFocus
@@ -26,8 +42,8 @@ class Form extends Component {
           <input
             type="email"
             placeholder="Enter your email"
-            value={userState.email}
-            onChange={(e) => changeHandler(e)}
+            value={email}
+            onChange={this.onChangeHandler}
             name="email"
             autoComplete="off"
             autoFocus={!isUserName}
@@ -35,8 +51,8 @@ class Form extends Component {
           <input
             type="password"
             placeholder="Enter your password"
-            value={userState.password}
-            onChange={(e) => changeHandler(e)}
+            value={password}
+            onChange={this.onChangeHandler}
             name="password"
             autoComplete="off"
           />
