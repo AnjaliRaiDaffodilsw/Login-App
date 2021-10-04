@@ -16,7 +16,7 @@ class Login extends Component {
       email: "",
       password: "",
       isLoggedIn,
-      error: ""
+      error: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -47,7 +47,11 @@ class Login extends Component {
 
   render() {
     if (this.state.isLoggedIn === true) return <Redirect to="/profile" />
-    if (this.state.error) return <h1>Invalid User {this.state.error}</h1>
+    if (this.state.error) return (
+      <h1 className="error-text">
+        Invalid User {this.state.error}
+      </h1>
+    )
     return (
       <>
         <form onSubmit={this.handleSubmit} className="form-area">

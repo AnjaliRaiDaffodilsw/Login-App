@@ -42,3 +42,9 @@ input {
   margin-bottom: 20px;
   padding: 8px;
 }
+
+.error-text {
+  color: red;
+  text-align: center;
+  font-size: 23px;
+}

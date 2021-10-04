@@ -49,11 +49,16 @@ class Signup extends Component {
 
   render() {
     if (this.state.isLoggedIn === true) return <Redirect to="/profile" />
+    if (this.state.error) return (
+      <h1 className="error-text">
+        Invalid User {this.state.error}
+      </h1>
+    )
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="form-area">
           <input
-            type="username"
+            type="text"
             placeholder="Enter your username"
             value={this.state.username}
             onChange={this.onChangeHandler}
