@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import { Redirect } from "react-router-dom";
 
-
 import '../assets/styles/FormInput.css';
+import Form from './Form';
+import { SignupAPI } from '../api/signup';
 
 class Signup extends Component {
   constructor(props) {
@@ -27,9 +27,9 @@ class Signup extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     try {
-      const token = await axios.post("https://reqres.in/api/register",
-        { email, password });
-      localStorage.setItem("token", JSON.stringify(token));
+      const response = await SignupAPI(email, password);
+      const Token = response.data.token;
+      localStorage.setItem("token", JSON.stringify(Token));
       this.setState({
         isLoggedIn: true
       });
@@ -56,35 +56,13 @@ class Signup extends Component {
     )
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className="form-area">
-          <input
-            type="text"
-            placeholder="Enter your username"
-            value={this.state.username}
-            onChange={this.onChangeHandler}
-            name="username"
-            autoComplete="off"
-          />
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={this.state.email}
-            onChange={this.onChangeHandler}
-            name="email"
-            autoComplete="off"
-          />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={this.state.password}
-            onChange={this.onChangeHandler}
-            name="password"
-            autoComplete="off"
-          />
-          <input
-            type="submit"
-          />
-        </form>
+        <Form
+          key={Math.random()}
+          changeHandler={this.onChangeHandler}
+          userState={this.state}
+          isUserName={true}
+          submitHandler={this.handleSubmit}
+        />
       </div>
     )
   }

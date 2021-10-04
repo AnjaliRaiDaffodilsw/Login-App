@@ -22,7 +22,9 @@ class App extends Component {
               {linkTextName.map((value, index) => {
                 return (
                   <Link
-                    to={value}>
+                    to={value}
+                    key={index}
+                  >
                     {linkName[index]}
                   </Link>
                 )

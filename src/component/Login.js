@@ -1,8 +1,9 @@
-import axios from 'axios';
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
 
 import '../assets/styles/FormInput.css';
+import Form from './Form';
+import { LoginAPI } from '../api/login';
 
 class Login extends Component {
   constructor(props) {
@@ -25,9 +26,9 @@ class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     try {
-      const token = await axios.post("https://reqres.in/api/login",
-        { email, password });
-      localStorage.setItem("token", JSON.stringify(token));
+      const response = await LoginAPI(email, password);
+      const Token = response.data.token;
+      localStorage.setItem("token", JSON.stringify(Token));
       this.setState({
         isLoggedIn: true
       });
@@ -54,27 +55,12 @@ class Login extends Component {
     )
     return (
       <>
-        <form onSubmit={this.handleSubmit} className="form-area">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={this.state.email}
-            onChange={this.onChangeHandler}
-            name="email"
-            autoComplete="off"
-          />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={this.state.password}
-            onChange={this.onChangeHandler}
-            name="password"
-            autoComplete="off"
-          />
-          <input
-            type="submit"
-          />
-        </form>
+        <Form
+          key={Math.random()}
+          changeHandler={this.onChangeHandler}
+          userState={this.state}
+          submitHandler={this.handleSubmit}
+        />
       </>
     )
   }
