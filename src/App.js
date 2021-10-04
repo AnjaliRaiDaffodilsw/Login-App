@@ -10,16 +10,23 @@ import './assets/styles/FormInput.css';
 class App extends Component {
   render() {
     const compNames = [Login, Profile, Logout, Signup];
+    const linkName = ["Login", "Signup"];
+    const linkTextName = ["/login", "/signup"];
     const pathNames = ["/login", "/profile", "/logout", "/signup"];
+
     return (
       <>
         <div className="link-container">
           <ul>
             <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
+              {linkTextName.map((value, index) => {
+                return (
+                  <Link
+                    to={value}>
+                    {linkName[index]}
+                  </Link>
+                )
+              })}
             </li>
           </ul>
         </div>

@@ -17,13 +17,12 @@ ul li {
   text-decoration: none;
   list-style: none;
   display: inline;
-  margin-left: 20px;
-  color: white;
 }
 
 a:-webkit-any-link {
-  color: white;
+  margin-left: 20px;
   cursor: pointer;
+  color: white;
   text-decoration: none;
 }
 
