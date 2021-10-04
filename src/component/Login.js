@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
 
-import '../assets/styles/FormInput.css';
+import '../assets/styles/FormInput.scss';
 import Form from './Form';
 import { LoginAPI } from '../api/login';
 

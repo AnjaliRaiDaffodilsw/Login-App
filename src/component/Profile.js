@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom";
 
-import '../assets/styles/FormInput.css';
+import '../assets/styles/FormInput.scss';
 
 class Profile extends Component {
   constructor(props) {

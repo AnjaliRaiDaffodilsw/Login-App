@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class Form extends Component {
 
     return (
       <div>
-        <form onSubmit={(e) => submitHandler(e, this.state)} className="form-area">
+        <form
+          onSubmit={(e) => submitHandler(e, this.state)}
+          className="form-area"
+        >
           {
             isUserName && <input
               type="text"
@@ -65,4 +69,9 @@ class Form extends Component {
   }
 }
 
-export default Form
+Form.propTypes = {
+  isUserName: PropTypes.bool,
+  submitHandler: PropTypes.func,
+};
+
+export default Form;

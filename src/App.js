@@ -5,7 +5,7 @@ import Login from './component/Login';
 import Logout from './component/Logout';
 import Profile from './component/Profile';
 import Signup from './component/Signup';
-import './assets/styles/FormInput.css';
+import './assets/styles/FormInput.scss';
 
 class App extends Component {
   render() {
