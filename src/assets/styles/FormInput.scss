@@ -1,49 +1,50 @@
+@import './Variable.scss';
+
 .form-area {
-  display: flex;
-  flex-direction: column;
+  display: $display-flex;
+  flex-direction: $flex-direction;
   width: 28%;
   margin: 7% 0 0px 36%;
-  justify-content: center;
+  justify-content: $display-center;
 }
 
 .link-container {
-  display: flex;
+  display: $display-flex;
   margin: 20px 65px 0 0;
-  background-color: rgb(6, 133, 184);
+  background-color: $background-color-blue;
   width: 100%;
 }
 
 ul li {
-  text-decoration: none;
-  list-style: none;
-  display: inline;
+  list-style: $list-style-none;
+  display: $display-inline;
 }
 
 a:-webkit-any-link {
-  margin-left: 20px;
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
+  margin-left: $margin-20;
+  cursor: $cursor-pointer;
+  color: $color-white;
+  text-decoration: $list-style-none;
 }
 
 .logout-button {
-  background-color: rgb(224, 224, 62);
+  background-color: $background-color-yellow;
   border-radius: 4px;
   margin: 2% 0px 0px 46%;
   width: 7%;
 }
 
 .heading-text {
-  text-align: center;
+  text-align: $display-center;
 }
 
 input {
-  margin-bottom: 20px;
+  margin-bottom: $margin-20;
   padding: 8px;
 }
 
 .error-text {
   color: red;
-  text-align: center;
+  text-align: $display-center;
   font-size: 23px;
 }

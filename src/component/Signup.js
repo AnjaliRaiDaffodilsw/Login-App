@@ -50,6 +50,7 @@ class Signup extends Component {
         <Form
           key={Math.random()}
           isUserName={true}
+          initialState={{username: "",password: "",email: "",}}
           submitHandler={this.handleSubmit}
         />
       </div>

@@ -20,7 +20,7 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSubmit(event,inputState) {
+  async handleSubmit(event, inputState) {
     event.preventDefault();
     const { email, password } = inputState;
     try {
@@ -49,6 +49,7 @@ class Login extends Component {
       <>
         <Form
           key={Math.random()}
+          initialState={{ email: "", password: "" }}
           submitHandler={this.handleSubmit}
         />
       </>

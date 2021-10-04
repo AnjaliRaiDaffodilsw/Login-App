@@ -6,9 +6,9 @@ class Form extends Component {
     super(props)
 
     this.state = {
-      email: "",
-      password: "",
-      username: ""
+      email: this.props.initialState.email,
+      password: this.props.initialState.password,
+      username: this.props.initialState.username
     }
   }
 
@@ -21,7 +21,7 @@ class Form extends Component {
   render() {
     const {
       isUserName,
-      submitHandler
+      submitHandler,
     } = this.props;
     const { username, password, email } = this.state;
 
@@ -72,6 +72,7 @@ class Form extends Component {
 Form.propTypes = {
   isUserName: PropTypes.bool,
   submitHandler: PropTypes.func,
+  initialState: PropTypes.object,
 };
 
 export default Form;
