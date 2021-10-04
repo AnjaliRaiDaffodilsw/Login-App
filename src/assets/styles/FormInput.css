@@ -1,0 +1,39 @@
+.form-area {
+  display: flex;
+  flex-direction: column;
+  width: 28%;
+  margin: 7% 0 0px 36%;
+  justify-content: center;
+}
+
+.link-container {
+  display: flex;
+  margin: 20px 65px 0 0;
+  background-color: rgb(6, 133, 184);
+  width: 100%;
+}
+
+ul li {
+  text-decoration: none;
+  list-style: none;
+  display: inline;
+  margin-left: 20px;
+  color: white;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logout-button {
+  background-color: rgb(224, 224, 62);
+  border-radius: 4px;
+  margin: 2% 0px 0px 46%;
+  width: 7%;
+}
+
+.heading-text {
+  text-align: center;
+}
