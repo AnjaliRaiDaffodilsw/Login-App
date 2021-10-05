@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-export default class Logout extends React.Component {
+class Logout extends React.Component {
 
   constructor(props) {
     super(props)
@@ -9,6 +9,10 @@ export default class Logout extends React.Component {
   }
 
   render() {
-    return <Redirect to="/login" />
+    return (
+      <Redirect to="/login" />
+    )
   }
 }
+
+export default Logout;
