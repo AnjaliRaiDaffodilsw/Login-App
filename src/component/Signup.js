@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 
 import '../assets/styles/FormInput.scss';
@@ -58,4 +58,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+export default Signup;
